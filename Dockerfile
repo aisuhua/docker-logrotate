@@ -1,5 +1,7 @@
 FROM alpine:3.12
 
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
 RUN set -x \
   && apk add --no-cache logrotate tini tzdata moreutils \
   && rm /etc/logrotate.conf && rm -r /etc/logrotate.d \
